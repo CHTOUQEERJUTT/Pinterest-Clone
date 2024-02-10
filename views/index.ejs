@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+<div class="main w-full h-screen bg-gray-500 pt-1    ">
+    <div class="lgcnt flex justify-center items-center mt-36   ">
+        <div class="lg w-96 h-[600px] bg-white rounded-2xl   ">
+            <div class="ic flex justify-center items-center mt-4 ">
+                <i class="ri-pinterest-fill text-[50px] text-red-600 "></i>
+            </div>
+            
+            <h2 class="text-center text-2xl mt-4 font-semibold text-zinc-700 ">Welcome to Pinterest</h2>
+            <div class="fmcnt">
+                <form action="/login" method="POST" class="flex flex-col items-center mt-8">
+                    <input type="text" name="username" placeholder="Username" class="w-3/4 h-10 border-2 border-gray-300 rounded-md px-2">
+                    <input type="password" name="password" placeholder="Password" class="w-3/4 h-10 border-2 border-gray-300 rounded-md px-2 mt-4">
+                    <div class="fgcnt  text-zinc-600 flex justify-start">
+                        <a class="ml-[-115px]" href="">Forgot your password?</a>
+                    </div>
+                    <button type="submit" class="w-3/4 h-10 bg-red-500 text-white rounded-md mt-4">Login</button>
+                </form>
+                
+                <div class=" text-center mt-4 w-2/3 ml-16 ">
+                    By continuing, you agree to Pinterest's Terms of Service; and acknowledge you've read our Privacy Policy;Notice at collection; <br>
+                    <a href="/register" class="text-blue-500">New User? Register</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<%- include('partials/footer') %>

@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<div class="navc">
+    <div class="nav w-full h-16 bg-zinc-200 flex justify-between items-center px-4 gap-8">
+        <div class="logo">
+            <i class="ri-pinterest-fill text-3xl text-[#E60023]"></i>
+        </div>
+        <div class="search">
+            <input type="text" class="w-96 h-10 rounded-full px-4" placeholder="Search">
+        </div>
+        <div class="nav-links gap-10 flex ">
+            <a href="/feed" class="text-l font-semibold w-20 text-center py-2 h-10  rounded-full hover:bg-black hover:text-white  ">Home</a>
+            <a href="/createposts" class="text-l font-semibold w-20 text-center py-2 h-10  rounded-full hover:bg-black hover:text-white">Create</a>
+            <a href="/logout" class="text-l font-semibold w-20 text-center py-2 h-10  rounded-full hover:bg-black hover:text-white">Logout</a>
+        </div>
+    </div>
+</div>
+<div class="main w-full h-screen ">
+    <div class="cards flex flex-wrap gap-10  ">
+        <% posts.forEach(function(elem){%>
+            <div class="card w-72      ">
+                <div class=" w-72 h-40 bg-red-500 ml-4 mt-4 rounded-md overflow-hidden ">
+                    <img class="w-full h-full object-cover  " src="/images/uploads/<%= elem.postimage %>" alt="">
+                </div>
+                <h1 class="text-zinc-700 text-x ml-4 py-0 "><%= elem.caption %></h1>
+                <p class="text-zinc-500  ml-4 py-0 ">@<%= elem.user.username %></p>
+        </div>
+
+            
+            
+        <%}) %>
+        
+</div>
+
+   
+        
+</div>
+<%- include('partials/footer') %>
