@@ -48,25 +48,6 @@ router.get('/createposts', function(req, res, next) {
 router.get('/register', function(req, res, next) {
   res.render('register');
 });
-router.get('/search', isLoggedIn, async function(req, res, next) {
-  let query = req.query.q; // Get the search query from the URL
-
-  let user = await userModel.findOne({ username: req.session.passport.user }).populate('posts');
-  let posts = await postModel.find().populate('user');
-
-  let users = [];
-  if (query) {
-      // Search for users by username or fullname
-      users = await userModel.find({
-          $or: [
-              { username: { $regex: query, $options: 'i' } }, // Case-insensitive search
-              { fullname: { $regex: query, $options: 'i' } }
-          ]
-      });
-  }
-
-  res.render('feed', { user, posts, users, query });
-});
 // Define a new route for displaying search results
 router.get('/search-results', isLoggedIn, async function(req, res, next) {
   let user = await userModel.findOne({ username: req.session.passport.user }).populate('posts');
@@ -83,8 +64,7 @@ router.get('/search-results', isLoggedIn, async function(req, res, next) {
           ]
       });
   }
-
-  res.render('user-profile', { user,users, query }); // Render user-profile.ejs instead of feed.ejs
+  res.render('user-profile', {user,users, query }); // Render user-profile.ejs instead of feed.ejs
 });
 
 

@@ -1,36 +1,27 @@
 <%- include('partials/header') %>
 
-<div class="navc">
-    <!-- Your navigation bar code here -->
-</div>
-
 <div class="main w-full h-screen">
     <!-- Search form -->
-    <div class="search">
-        <form action="/search-results" method="GET">
-            <input type="text" name="q" class="w-96 h-10 rounded-full px-4" placeholder="Search">
-            <button type="submit">Search</button>
-        </form>
-    </div>
-
-    <% if (query) { %>
-        <div class="search-results">
-            <h2>Search Results for: <%= query %></h2>
-            <% if (users.length > 0) { %>
-                <ul>
-                    <% users.forEach(user => { %>
-                        <li><a href="/profile/<%= user.username %>"><%= user.fullname %> (@<%= user.username %>)</a></li>
-                    <% }); %>
-                </ul>
-            <% } else { %>
-                <p>No users found.</p>
-            <% } %>
+    <div class="navc">
+        <div class="nav w-full h-16 bg-zinc-200 flex justify-between items-center px-4 gap-8">
+            <div class="logo">
+                <i class="ri-pinterest-fill text-3xl text-[#E60023]"></i>
+            </div>
+            <div class="search">
+                <form action="/search-results" method="GET">
+                    <input type="text" name="q" class="w-96 h-10 rounded-full px-4" placeholder="Search">
+                    <button type="submit">
+                        <i class="ri-search-line"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="nav-links gap-10 flex ">
+                <a href="/profile" class="text-l font-semibold w-20 text-center py-2 h-10  rounded-full hover:bg-black hover:text-white  ">Profile</a>
+                <a href="/createposts" class="text-l font-semibold w-20 text-center py-2 h-10  rounded-full hover:bg-black hover:text-white">Create</a>
+                <a href="/logout" class="text-l font-semibold w-20 text-center py-2 h-10  rounded-full hover:bg-black hover:text-white">Logout</a>
+            </div>
         </div>
-    <% } %>
-    
-
-
-    <!-- Posts section -->
+    </div>
     <div class="cards flex flex-wrap gap-10">
         <% posts.forEach(function(elem) { %>
             <div class="card w-64">

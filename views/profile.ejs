@@ -6,7 +6,12 @@
             <i class="ri-pinterest-fill text-3xl text-[#E60023]"></i>
         </div>
         <div class="search">
-            <input type="text" class="w-96 h-10 rounded-full px-4" placeholder="Search">
+            <form action="/search-results" method="GET">
+                <input type="text" name="q" class="w-96 h-10 rounded-full px-4" placeholder="Search">
+                <button type="submit">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
         </div>
         <div class="nav-links gap-10 flex ">
             <a href="/feed" class="text-l font-semibold w-20 text-center py-2 h-10  rounded-full hover:bg-black hover:text-white  ">Home</a>
